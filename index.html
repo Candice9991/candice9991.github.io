@@ -93,12 +93,13 @@
                     </button>
                     <div class="project-details">
                         <div class="project-gallery" aria-label="Smart suction cup project images">
-                            <!-- TODO: Add video-->
-                            <img src="assets/ssc-image1.png" alt="Smart suction cup prototype close-up">
+
+                            <img src="assets/ssc-image1.png" alt="Smart suction cup prototype close-up" class="project-image-bottom">
                             <img src="assets/ssc-image2.png" alt="Smart suction cup lifting a bottle">
-                            <img src="assets/ssc-image3.png" alt="Smart suction cup lifting irregular packaging">
-                            <img src="assets/ssc-image4.png" alt="Pressure sensor circuit board for smart suction cup">
+                            <img src="assets/ssc-image3.png" alt="Smart suction cup lifting irregular packaging" class="project-image-bottom">
+                            <img src="assets/ssc-image4.png" alt="Pressure sensor circuit board for smart suction cup" class="project-image-bottom">
                         </div>
+                        <video class="project-video" aria-label="Smart suction cup demo video" src="assets/suction.MOV" autoplay loop muted playsinline></video>
                         <p>Redesigned a research-grade smart suction cup into a lower-cost, compact, modular robotic gripper for trash sorting and industrial manipulation. The system uses multi-chamber pressure sensing to provide tactile feedback and help robotic arms detect and correct grasping errors.</p>
                         <h3>My Role</h3>
                         <ul>
@@ -228,6 +229,17 @@
             const summary = card.querySelector('.project-summary');
             summary.setAttribute('aria-expanded', String(isOpen));
             card.classList.toggle('is-open', isOpen);
+            // restart/play video when opening the project details; pause when closing
+            const video = card.querySelector('video.project-video');
+            if (video) {
+                if (isOpen) {
+                    try { video.currentTime = 0; } catch (e) {}
+                    const p = video.play();
+                    if (p && typeof p.catch === 'function') p.catch(() => {});
+                } else {
+                    try { video.pause(); } catch (e) {}
+                }
+            }
         }
 
         function updateToggleAllLabel() {

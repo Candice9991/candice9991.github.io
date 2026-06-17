@@ -465,6 +465,29 @@ body.light-mode .school-name {
     background: #ffffff;
 }
 
+/* anchor specific image crops to bottom for better framing */
+.project-gallery img.project-image-bottom {
+    object-position: center bottom;
+}
+
+/* responsive video for project details */
+.project-video {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    display: block;
+    object-fit: contain;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #000;
+}
+
+@media (max-width: 560px) {
+    .project-video {
+        max-height: 260px;
+    }
+}
+
 .project-details p {
     font-size: 0.98rem;
     line-height: 1.6;
