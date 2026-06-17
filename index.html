@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Candice Ziqi Xia (夏子淇)</title>
+</head>
+<body>
+    <button class="theme-toggle" type="button" aria-label="Switch to light mode">
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <main class="grid-2">
+        <section class="section-1" aria-label="Profile">
+            <i class="fas fa-user fa-5x white" aria-hidden="true"></i>
+            <h1>Candice Ziqi Xia</h1>
+                        <p class="chinese-name">夏子淇</p>
+
+            <!-- <p>Berkeley, CA</p> -->
+            
+            <a href="https://www.linkedin.com/in/ziqi-xia-570481243/" aria-label="LinkedIn profile">
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
+        </section>
+
+        <section class="section-2">
+            <h2>About Me</h2>
+            <p>I am a mechanical engineer focused on product design, prototyping, and turning early technical ideas into working systems. My work spans robotic manipulation, consumer air-quality products, embedded sensing, and manufacturing tooling.</p>
+            <p>Across research, product development, and manufacturing environments, I have worked with CAD, 3D printing, silicone molding, PCB development, CFD, FEA, and embedded hardware. I contributed to <button class="patent-link" type="button" aria-expanded="false" aria-controls="patent-popover">four utility patents</button> related to gear manufacturing and tooling design.</p>
+            <p>I am currently seeking opportunities where I can contribute mechanical design, prototyping, and systems-thinking skills to an engineering or design team.</p>
+
+            <h3>Education</h3>
+            <ul class="education-list">
+                <li>
+                    <span class="degree-name">Master's in Mechanical Engineering (Product Design)</span>
+                    <span class="school-name">University of California, Berkeley <i> and </i> The Fung Institute for Engineering Leadership</span>
+                </li>
+                <li>
+                    <span class="degree-name">Bachelor's in Mechanical Engineering, Minor in Management</span>
+                    <span class="school-name">Purdue University</span>
+                </li>
+            </ul>
+
+            <div class="patent-popover" id="patent-popover" role="dialog" aria-label="Four utility patents">
+                <button class="patent-close" type="button" aria-label="Close patent popup">&times;</button>
+                <h3>Four Utility Patents</h3>
+                <ul>
+                    <li>
+                        <a href="https://patents.google.com/patent/CN212350651U/zh" target="_blank" rel="noopener">
+                            <span class="patent-number">CN212350651U</span>
+                            <span>Broach for finish-drawing internal teeth</span>
+                            <span class="patent-chinese">用于精拉内齿的拉刀</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://patents.google.com/patent/CN212363066U/zh" target="_blank" rel="noopener">
+                            <span class="patent-number">CN212363066U</span>
+                            <span>Inner gear ring detection tool</span>
+                            <span class="patent-chinese">内齿圈检具</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://patents.google.com/patent/CN111195736B/zh" target="_blank" rel="noopener">
+                            <span class="patent-number">CN111195736B</span>
+                            <span>Clamping and positioning device for ring-sleeve parts and processing method for ring-sleeve parts</span>
+                            <span class="patent-chinese">环套类零件装夹定位装置及环套类零件加工方法</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://patents.google.com/patent/CN111842522A/zh" target="_blank" rel="noopener">
+                            <span class="patent-number">CN111842522A</span>
+                            <span>Dies for forming drum teeth</span>
+                            <span class="patent-chinese">用于成型鼓形齿的凹模</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="projects-heading">
+                <h2>Select Projects</h2>
+                <button class="project-toggle-all" type="button">&gt; Expand All</button>
+            </div>
+
+            <div class="project-list">
+                <article class="project-card">
+                    <button class="project-summary" type="button" aria-expanded="false">
+                        <img src="assets/ssc-image2.png" alt="Smart suction cup prototype lifting a bottle" class="project-thumb">
+                        <span class="project-title">Smart Suction Cup for Robotic Trash Sorting</span>
+                        <span class="project-indicator" aria-hidden="true">&gt;</span>
+                    </button>
+                    <div class="project-details">
+                        <div class="project-gallery" aria-label="Smart suction cup project images">
+                            <!-- TODO: Add video-->
+                            <img src="assets/ssc-image1.png" alt="Smart suction cup prototype close-up">
+                            <img src="assets/ssc-image2.png" alt="Smart suction cup lifting a bottle">
+                            <img src="assets/ssc-image3.png" alt="Smart suction cup lifting irregular packaging">
+                            <img src="assets/ssc-image4.png" alt="Pressure sensor circuit board for smart suction cup">
+                        </div>
+                        <p>Redesigned a research-grade smart suction cup into a lower-cost, compact, modular robotic gripper for trash sorting and industrial manipulation. The system uses multi-chamber pressure sensing to provide tactile feedback and help robotic arms detect and correct grasping errors.</p>
+                        <h3>My Role</h3>
+                        <ul>
+                            <li>Mechanical and electronics redesign: casing integration, tubing cover, and pressure-sensor packaging.</li>
+                            <li>Transitioned prototype into a compact custom PCB and module.</li>
+                            <li>Selected components and microcontroller architecture.</li>
+                            <li>Supported prototype assembly, testing, and technical communication (presentations and reports).</li>
+                        </ul>
+                        <p><strong>Impact:</strong> This project supports more reliable robotic recycling and makes tactile robotic grippers more accessible for research labs and industrial automation.</p>
+                        <p><strong>Tools:</strong> KiCAD, JLCPCB manufacturing, microcontroller development, CircuitPython, OnShape, Bambu 3D printing/slicing, silicone molding.</p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <button class="project-summary" type="button" aria-expanded="false">
+                        <img src="assets/alp-image5.png" alt="CAD model of compact air purifier and fragrance dispenser" class="project-thumb">
+                        <span class="project-title">Air Purification and Fragrance Delivery Unit (AlpenLuft)</span>
+                        <span class="project-indicator" aria-hidden="true">&gt;</span>
+                    </button>
+                    <div class="project-details">
+                        <div class="project-gallery" aria-label="AlpenLuft project images">
+                            <img src="assets/alp-image5.png" alt="AlpenLuft exterior CAD model">
+                            <img src="assets/alp-image6.png" alt="AlpenLuft sectioned CAD model">
+                            <img src="assets/alp-image7.png" alt="AlpenLuft PCB prototype">
+                            <img src="assets/alp-image8.png" alt="AlpenLuft airflow simulation">
+                            <img src="assets/alp-image9.png" alt="AlpenLuft detailed airflow simulation">
+                        </div>
+                        <p>Designed a compact air purifier and active fragrance dispenser that combines a HEPA filter, DC fan, and motorized zeolite-pearl mixing chamber in one portable unit. A slow-speed gearbox rotates the fragrance-loaded pearls so scent is released evenly into the airflow while the filter path cleans the air.</p>
+                        <h3>My Role</h3>
+                        <ul>
+                            <li>Led product development from problem definition through final design review: FMEA, tradeoff analysis, manufacturability evaluation, CAD, simulation, PCB design, and CFD.</li>
+                            <li>Aligned mechanical design decisions with user needs: air quality, filter serviceability, fragrance distribution, and ease of assembly/disassembly.</li>
+                        </ul>
+                        <p><strong>Impact:</strong> The project explored a consumer-facing air-quality product that could improve indoor comfort while encouraging more structured, serviceable product design.</p>
+                        <p><strong>Tools:</strong> SOLIDWORKS, ANSYS Fluent, KiCAD.</p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <button class="project-summary" type="button" aria-expanded="false">
+                        <img src="assets/gmti-image10.png" alt="Patent drawing of gear manufacturing tooling" class="project-thumb">
+                        <span class="project-title">Gear Manufacturing and Tooling Improvement</span>
+                        <span class="project-indicator" aria-hidden="true">&gt;</span>
+                    </button>
+                    <div class="project-details">
+                        <div class="project-gallery" aria-label="Gear manufacturing project images">
+                            <img src="assets/gmti-image10.png" alt="Gear manufacturing patent drawing of toothed shaft">
+                            <img src="assets/gmti-image11.png" alt="Gear manufacturing patent drawing of crowned teeth">
+                            <img src="assets/gmti-image12.png" alt="Gear manufacturing patent drawing of die section">
+                        </div>
+                        <p>Supported manufacturing-focused mechanical design work for internal gear production, including tooling, fixtures, inspection aids, and production troubleshooting. Contributed to <button class="patent-link" type="button" aria-expanded="false" aria-controls="patent-popover">four utility patents</button> related to gear manufacturing and tooling design.</p>
+                        <h3>My Role</h3>
+                        <ul>
+                            <li>Designed and refined tooling, cutting tools, and inspection fixtures to improve setup repeatability, part stability, and machining accuracy.</li>
+                            <li>Diagnosed production issues and reviewed CAD/tooling changes with senior engineers.</li>
+                            <li>Connected design decisions to shop-floor outcomes: setup time, accuracy, and process consistency.</li>
+                        </ul>
+                        <p><strong>Impact:</strong> Improved practical manufacturing efficiency and reliability, helping engineering designs become more repeatable in production.</p>
+                        <p><strong>Tools:</strong> SOLIDWORKS, Siemens NX, machining process.</p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <button class="project-summary" type="button" aria-expanded="false">
+                        <img src="assets/crutch_1.png" alt="Hands-free assistive walking device prototype" class="project-thumb">
+                        <span class="project-title">Hands-Free Assistive Walking Device for Knee Rehabilitation</span>
+                        <span class="project-indicator" aria-hidden="true">&gt;</span>
+                    </button>
+                    <div class="project-details">
+                        <div class="project-gallery" aria-label="Assistive walking device project images">
+                            <img src="assets/crutch_1.png" alt="Assistive device front view">
+                            <img src="assets/crutch_2.png" alt="Assistive device side view">
+                        </div>
+                        <p>Designed a hands-free mobility aid for patients recovering from knee or upper-leg injuries. The device redirects load away from the injured knee through an external support structure, helping users maintain mobility while reducing reliance on traditional crutches.</p>
+                        <h3>My Role</h3>
+                        <ul>
+                            <li>Refined the prototype’s mechanical architecture, including the support frame, custom hinge, spring-assisted linkage, telescoping structure, and user attachment interfaces.</li>
+                            <li>Converted CAD concepts into 3D-printed parts, assembled the device, and tested fit, strength, manufacturability, and usability.</li>
+                        </ul>
+                        <p><strong>Impact:</strong> This project explored a safer and more independent mobility solution for knee rehabilitation by addressing the limitations of standard crutches, including hand use, discomfort, and risk of unsafe weight-bearing.</p>
+                        <p><strong>Tools:</strong> SolidWorks, 3D Printing, FEA/Structural Analysis.</p>
+                    </div>
+                </article>
+            </div>
+
+            <h2>Tools and Skills</h2>
+            <div class="skills-list" aria-label="Skills">
+                <span>OnShape</span>
+                <span>Siemens NX</span>
+                <span>SOLIDWORKS</span>
+                <span>Fusion 360</span>
+                <span>PTC Creo</span>
+                <span>KiCAD</span>
+                <span>ABAQUS FEA</span>
+                <span>3D Printing</span>
+                <span>Mandarin Chinese</span>
+            </div>
+
+            <h2>Contact</h2>
+            <div class="contact-list" aria-label="Email addresses">
+                <a class="email-link" href="mailto:cxia@berkeley.edu"><i class="fas fa-envelope" aria-hidden="true"></i>cxia@berkeley.edu</a>
+                <a class="email-link" href="mailto:XiaZiqiCandice@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i>XiaZiqiCandice@gmail.com</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const body = document.body;
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const projectCards = Array.from(document.querySelectorAll('.project-card'));
+        const toggleAll = document.querySelector('.project-toggle-all');
+        const patentLinks = Array.from(document.querySelectorAll('.patent-link'));
+        const patentPopover = document.querySelector('.patent-popover');
+        const patentClose = document.querySelector('.patent-close');
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+
+        setTheme(prefersLight);
+
+        function setTheme(isLight) {
+            body.classList.toggle('light-mode', isLight);
+            themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+            themeIcon.className = isLight ? 'fas fa-moon' : 'fas fa-sun';
+        }
+
+        function setProjectOpen(card, isOpen) {
+            const summary = card.querySelector('.project-summary');
+            summary.setAttribute('aria-expanded', String(isOpen));
+            card.classList.toggle('is-open', isOpen);
+        }
+
+        function updateToggleAllLabel() {
+            const allOpen = projectCards.every((card) => card.classList.contains('is-open'));
+            toggleAll.textContent = allOpen ? '> Collapse All' : '> Expand All';
+        }
+
+        function setPatentPopoverOpen(isOpen) {
+            patentPopover.classList.toggle('is-open', isOpen);
+            patentLinks.forEach((link) => link.setAttribute('aria-expanded', String(isOpen)));
+        }
+
+        themeToggle.addEventListener('click', () => {
+            setTheme(!body.classList.contains('light-mode'));
+        });
+
+        projectCards.forEach((card) => {
+            const summary = card.querySelector('.project-summary');
+            summary.addEventListener('click', () => {
+                setProjectOpen(card, !card.classList.contains('is-open'));
+                updateToggleAllLabel();
+            });
+        });
+
+        toggleAll.addEventListener('click', () => {
+            const shouldOpen = !projectCards.every((card) => card.classList.contains('is-open'));
+            projectCards.forEach((card) => setProjectOpen(card, shouldOpen));
+            updateToggleAllLabel();
+        });
+
+        patentLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                setPatentPopoverOpen(!patentPopover.classList.contains('is-open'));
+            });
+        });
+
+        patentClose.addEventListener('click', () => {
+            setPatentPopoverOpen(false);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                setPatentPopoverOpen(false);
+            }
+        });
+    </script>
+</body>
+</html>
