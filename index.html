@@ -85,8 +85,8 @@
             </div>
 
             <div class="project-list">
-                <article class="project-card">
-                    <button class="project-summary" type="button" aria-expanded="false">
+                <article class="project-card is-open">
+                    <button class="project-summary" type="button" aria-expanded="true">
                         <img src="assets/ssc-image2.png" alt="Smart suction cup prototype lifting a bottle" class="project-thumb">
                         <span class="project-title">Smart Suction Cup for Robotic Trash Sorting</span>
                         <span class="project-indicator" aria-hidden="true">&gt;</span>
@@ -100,16 +100,15 @@
                             <img src="assets/ssc-image4.png" alt="Pressure sensor circuit board for smart suction cup" class="project-image-bottom">
                         </div>
                         <video class="project-video" aria-label="Smart suction cup demo video" src="assets/suction.MOV" autoplay loop muted playsinline></video>
-                        <p>Redesigned a research-grade smart suction cup into a lower-cost, compact, modular robotic gripper for trash sorting and industrial manipulation. The system uses multi-chamber pressure sensing to provide tactile feedback and help robotic arms detect and correct grasping errors.</p>
+                        
+                        <p></p><p>Redesigned a research-grade smart suction cup into a lower-cost, compact, modular robotic gripper for trash sorting and industrial manipulation. The system uses multi-chamber pressure sensing to provide tactile feedback and help robotic arms detect and correct grasping errors.</p>
                         <h3>My Role</h3>
                         <ul>
-                            <li>Mechanical and electronics redesign: casing integration, tubing cover, and pressure-sensor packaging.</li>
-                            <li>Transitioned prototype into a compact custom PCB and module.</li>
-                            <li>Selected components and microcontroller architecture.</li>
-                            <li>Supported prototype assembly, testing, and technical communication (presentations and reports).</li>
+                            <li>Contributed to the mechanical and electronics redesign of the suction cup module, including casing integration, tubing cover design, pressure-sensor packaging, and the transition from a prototype to a compact custom PCB.</li>
+                            <li>Helped select components and microcontroller architecture, supported prototype assembly/testing, and communicated the design through technical presentations and reports.</li>
                         </ul>
                         <p><strong>Impact:</strong> This project supports more reliable robotic recycling and makes tactile robotic grippers more accessible for research labs and industrial automation.</p>
-                        <p><strong>Tools:</strong> KiCAD, JLCPCB manufacturing, microcontroller development, CircuitPython, OnShape, Bambu 3D printing/slicing, silicone molding.</p>
+                        <p><strong>Tools:</strong> KiCAD, JLCPCB manufacturing, microcontroller development (CircuitPython), OnShape, 3D Print/Slicing (Bambu), Silicone Molding</p>
                     </div>
                 </article>
 
@@ -169,7 +168,7 @@
                         <span class="project-indicator" aria-hidden="true">&gt;</span>
                     </button>
                     <div class="project-details">
-                        <div class="project-gallery" aria-label="Assistive walking device project images">
+                        <div class="project-gallery project-gallery-full-aspect" aria-label="Assistive walking device project images">
                             <img src="assets/crutch_1.png" alt="Assistive device front view">
                             <img src="assets/crutch_2.png" alt="Assistive device side view">
                         </div>
@@ -206,6 +205,12 @@
         </section>
     </main>
 
+    <div class="image-popup" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="image-popup-backdrop"></div>
+        <button type="button" class="image-popup-close" aria-label="Close image preview">&times;</button>
+        <img class="image-popup-img" src="" alt="">
+    </div>
+
     <script>
         const body = document.body;
         const themeToggle = document.querySelector('.theme-toggle');
@@ -240,6 +245,8 @@
                     try { video.pause(); } catch (e) {}
                 }
             }
+            // recalculate hint for newly visible galleries
+            requestAnimationFrame(updateGalleryScrollHint);
         }
 
         function updateToggleAllLabel() {
@@ -268,21 +275,90 @@
             const shouldOpen = !projectCards.every((card) => card.classList.contains('is-open'));
             projectCards.forEach((card) => setProjectOpen(card, shouldOpen));
             updateToggleAllLabel();
+            requestAnimationFrame(updateGalleryScrollHint);
         });
 
         patentLinks.forEach((link) => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (event) => {
+                event.stopPropagation();
                 setPatentPopoverOpen(!patentPopover.classList.contains('is-open'));
             });
         });
 
-        patentClose.addEventListener('click', () => {
+        patentClose.addEventListener('click', (event) => {
+            event.stopPropagation();
             setPatentPopoverOpen(false);
+        });
+
+        document.addEventListener('click', (event) => {
+            if (patentPopover.classList.contains('is-open')) {
+                const isInsidePopover = patentPopover.contains(event.target);
+                const isPatentTrigger = patentLinks.some((link) => link.contains(event.target));
+                if (!isInsidePopover && !isPatentTrigger) {
+                    setPatentPopoverOpen(false);
+                }
+            }
         });
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
                 setPatentPopoverOpen(false);
+            }
+        });
+
+        // hide scroll hint arrow when gallery doesn't overflow
+        function updateGalleryScrollHint() {
+            const galleries = document.querySelectorAll('.project-gallery');
+            galleries.forEach((gallery) => {
+                const hasOverflow = gallery.scrollWidth > gallery.clientWidth;
+                gallery.classList.toggle('has-overflow', hasOverflow);
+            });
+        }
+
+        updateToggleAllLabel();
+        updateGalleryScrollHint();
+
+        const imagePopup = document.querySelector('.image-popup');
+        const imagePopupImg = imagePopup.querySelector('.image-popup-img');
+        const imagePopupClose = imagePopup.querySelector('.image-popup-close');
+        const imagePopupBackdrop = imagePopup.querySelector('.image-popup-backdrop');
+
+        function openImagePopup(image) {
+            imagePopupImg.src = image.src;
+            imagePopupImg.alt = image.alt || 'Project image preview';
+            imagePopup.classList.add('is-open');
+            imagePopup.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeImagePopup() {
+            imagePopup.classList.remove('is-open');
+            imagePopup.setAttribute('aria-hidden', 'true');
+            imagePopupImg.src = '';
+            imagePopupImg.alt = '';
+        }
+
+        document.querySelectorAll('.project-gallery img').forEach((thumb) => {
+            thumb.addEventListener('click', () => {
+                openImagePopup(thumb);
+            });
+        });
+
+        imagePopupClose.addEventListener('click', closeImagePopup);
+        imagePopupBackdrop.addEventListener('click', closeImagePopup);
+        imagePopup.addEventListener('click', (event) => {
+            if (event.target === imagePopup) {
+                closeImagePopup();
+            }
+        });
+
+        imagePopupImg.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                setPatentPopoverOpen(false);
+                closeImagePopup();
             }
         });
     </script>
